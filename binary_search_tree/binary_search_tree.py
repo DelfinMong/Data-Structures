@@ -17,7 +17,17 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        # current node is self
+        # check if self.value is bigger or smaller than new value - left or right
+        if value < self.value:
+            # we go left or right then check if nodeexists
+            if not self.left:
+                # if node does not exist then create a node there
+                self.left = BinarySearchTree(value)
+                # if node does not exist use recursion: call insert on that node
+            else:
+                self.left.insert(value)
+                
 
     # Return True if the tree contains the value
     # False if it does not
